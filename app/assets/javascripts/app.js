@@ -6,6 +6,13 @@ $(document).ready(function () {
   $(".positive").on("click", function () {
     $("#answer").text("positive")
   })
+
+  $.get("/authors.json", function (data) {
+    console.log(data);
+    data.forEach(function (item) {
+      $("#author-data").append(item.name + "<br>");
+    })
+  });
 });
 
 
