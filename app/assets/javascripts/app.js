@@ -104,10 +104,7 @@ function filterBooks(authorName) {
   $(".card-author").each(function (index, value) {
     if (value.innerText != `Author: ${authorName}`) {
       $(".card").eq(index).css("display", "none");
-    } else {
-
     }
-
   });
 }
 
