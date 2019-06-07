@@ -29,7 +29,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'active_model_serializers'
 
-gem 'semantic-ui-sass'
+# Bootsrap CSS Framework
+gem 'bootstrap', '~> 4.3.1'
 
 # JQuery for Rails
 gem 'jquery-rails'

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col">
+    <ul class="mt-4">
+      <% @authors.each do |author| %>
+        <li class="mt-3">
+          <%= author.name %>
+          <% if author.books %>
+            <ul>
+            <% author.books.each do |book| %>
+              <li>
+                <%= book.title %>
+              </li>
+            <% end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

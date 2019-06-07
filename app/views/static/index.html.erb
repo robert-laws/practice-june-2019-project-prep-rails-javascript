@@ -1,44 +1,8 @@
-<div class="ui grid">
-  <div class="sixteen wide column">
+<div class="row mt-3">
+  <div class="col">
     <h1>Home Page</h1>
     <p>Some basic information is contained here.</p>
   </div>
 </div>
 
-<div class="ui grid">
-  <div class="eight wide column">
-    <%= image_tag "character.png", class: "ui medium bordered image", data: { name: "person" } %>
-  </div>
-  <div class="eight wide column">
-    <div id="author-data"></div>
-  </div>
-</div>
-
-<div class="ui grid">
-  <div class="sixteen wide column">
-    <button class="ui button green create_btn" type="button" id="test">Open Modal</button>
-  </div>
-</div>
-
-<h3 id="answer"></h3>
-
-<i class="massive teal birthday cake icon"></i>
-
-<div id="sample-modal" class="ui special modal">
-  <div class="header">
-    Delete Your Account
-  </div>
-  <div class="content">
-    
-    <div class="ui hidden divider"></div>
-  </div>
-  <div class="actions">
-    <div class="ui negative button">
-      No
-    </div>
-    <div class="ui positive right labeled icon button">
-      Yes
-      <i class="checkmark icon"></i>
-    </div>
-  </div>
-</div>
+<div id="authorsList"></div>
