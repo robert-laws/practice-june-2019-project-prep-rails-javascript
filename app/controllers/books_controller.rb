@@ -7,7 +7,11 @@ class BooksController < ApplicationController
         format.json { render json: @books }
       end
     else
-      @books = Book.all
+      @books = Book.all.sorted
+      respond_to do |format|
+        format.html { render :index }
+        format.json { render json: @books }
+      end
     end
   end
 

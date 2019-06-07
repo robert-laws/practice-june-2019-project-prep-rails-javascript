@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'active_model_serializers'
 
+# Font-Awesome - Icons
+gem "font-awesome-rails"
+
 # Bootsrap CSS Framework
 gem 'bootstrap', '~> 4.3.1'
 
