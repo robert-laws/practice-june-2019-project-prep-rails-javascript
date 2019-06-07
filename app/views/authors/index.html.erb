@@ -1,6 +1,6 @@
-<div class="row">
-  <div class="col">
-    <ul class="mt-4">
+<div class="row mt-4">
+  <div class="col-6">
+    <ul>
       <% @authors.each do |author| %>
         <li class="mt-3">
           <%= author.name %>
@@ -16,5 +16,31 @@
         </li>
       <% end %>
     </ul>
+  </div>
+  <div class="col-6">
+    <h5>New Author Form</h5>
+    <%= form_for(@author, html: { class: "new-author-form" }) do |f| %>
+      <div class="form-group">
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :age %><br>
+        <%= f.text_field :age, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :location %><br>
+        <%= f.text_field :location, class: "form-control" %>
+      </div>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+
+    <hr>
+
+    <div id="authorResult">
+      <h2 id="authorName"></h2>
+      <p id="authorAge"></p>
+      <p id="authorLocation"></p>
+    </div>
   </div>
 </div>

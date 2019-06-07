@@ -5,10 +5,13 @@ Rails.application.routes.draw do
 
   # get "/authors/:id/books", to: "authors#books_index"
 
-  resources :authors, only: [:index] do
+  resources :authors, only: [:index, :new, :create] do
     resources :books, only: [:index]
   end
 
+  resources :books, only: [:show]
+
+  # get "/book-info/:id", to: "books#show"
 
   # get 'subjects/index'
 
