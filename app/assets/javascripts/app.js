@@ -11,7 +11,8 @@ $(document).ready(function () {
     console.log(data);
     data.forEach(function (item) {
       $("#authorsList").append($("<p>", { id: `author-${item.id}` }).text(item.name))
-      $(`#author-${item.id}`).append($("<button>", { id: `author-button-${item.id}`, class: 'btn btn-secondary mx-4', data: `${item.id}` }).text("show books").attr("data-id", item.id).click(function() {
+      $(`#author-${item.id}`).append($("<button>", { id: `author-button-${item.id}`, class: 'btn btn-secondary mx-4', data: `${item.id}` }).text("show books").attr("data-id", item.id).click(function(event) {
+        event.preventDefault();
         getBooks(item.id)
       }));
       $("#authorsList").append($("<div>", { id: `author-books-${item.id}` }));
