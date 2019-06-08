@@ -7,6 +7,29 @@ $(document).ready(function () {
   //   $("#answer").text("positive")
   // })
 
+  $("#add-author-form").submit(function(event) {
+    event.preventDefault();
+    let vals = $(this).serialize();
+    addNewAuthor(vals)
+  });
+  
+  function addNewAuthor(values) {
+    var newAuthor = $.post('/authors', values);
+    newAuthor.done(function (data) {
+      $("#authorName").text(data["name"]);
+      $("#authorAge").text(data["age"]);
+      $("#authorLocation").text(data["location"]);
+    });
+  }
+  
+
+  $(".new-author-form").submit(function (event) {
+    //prevent form from submitting the default way
+    event.preventDefault();
+    var values = $(this).serialize();
+    addAuthor(values);
+  });
+
   let authorsData = [];
 
   if ($("#books-show").length) {
@@ -20,7 +43,7 @@ $(document).ready(function () {
     })
   }
 
-  if ($("#list-authors-page").length) {
+  if ($("#authorsList").length) {
     $.get("/authors.json", function (data) {
       console.log(data);
       data.forEach(function (item) {
@@ -44,12 +67,8 @@ $(document).ready(function () {
 });
 
 
-$(".new-author-form").submit(function (event) {
-  //prevent form from submitting the default way
-  event.preventDefault();
-  var values = $(this).serialize();
-  addAuthor(values);
-});
+
+
 
 function getBooks(id) {
   $.get(`/authors/${id}/books.json`, function (data) {
@@ -101,11 +120,16 @@ function getNext() {
 
 function filterBooks(authorName) {
   $(".card").css("display", "block")
+  $("#no-books-found").css("display", "none")
   $(".card-author").each(function (index, value) {
     if (value.innerText != `Author: ${authorName}`) {
       $(".card").eq(index).css("display", "none");
     }
   });
+  let visible = $(".card[style='display: block;']").length;
+  if(visible == 0) {
+    $("#no-books-found").css("display", "block")
+  }
 }
 
 function getBooksIndex() {
